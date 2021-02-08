@@ -1,0 +1,22 @@
+type,id,name,relation,os,dbType
+system,大乘内研系统,大乘内研系统,all
+web,192.168.50.16-80,oa_web,192.168.50.18-8080
+service,192.168.50.18-8080,oa_svr1,all
+db,192.168.50.17-3306,oa_db,,mysql
+server,192.168.50.16,192.168.50.16,192.168.50.251,Red Hat 6.7
+server,192.168.50.17,192.168.50.17,192.168.50.251,Red Hat 6.7
+server,192.168.50.18,192.168.50.18,192.168.50.251,Red Hat 6.7
+swich,192.168.50.251,华为交换机_251
+
+模版说明：（导入请先删除模版说明）
+cmdb类型及关系:
+  模块分类关系: system(系统)->web(前端服务)->service(后端服务)->db(数据库)
+  ip资产分类关系: server(服务器)->swich(交换机)
+  其中web、service、db模块根据IP对应相应的server
+字段说明:
+  type: 类型
+  id: 唯一标识，system的id要与指标的应用系统名称字段保证一致，web/service/db使用'ip_端口'保证唯一，server/swich使用'ip'保证唯一
+  name: 名称，web/service/db使用'模块名称',server/swich可使用'ip'
+  relation: 关联一级下游关系，值为一级下游的id，多个用分号(;)分割，不填表示没有下游关系，all表示关联本文件中所有一级下游
+  os: server独有的字段，表示server的os如centos7.5，可选
+  dbType: db独有的字段，表示db的类型如oracle，可选

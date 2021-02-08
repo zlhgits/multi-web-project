@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zlh</groupId>
+    <artifactId>multi-web-project</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-Beta</version>
+
+
+    <issueManagement>
+        <system>Redmine</system>
+        <url>http://192.168.50.97:81/redmine/projects/multi-web-project/issues</url>
+    </issueManagement>
+
+    <organization>
+        <name>Zlh Tech</name>
+        <url>https://my.oschina.net/zlhblogs</url>
+    </organization>
+
+    <modules>
+        <module>web-projects</module>
+    </modules>
+
+    <licenses>
+        <license>
+            <name>Zlh Close Source License</name>
+        </license>
+    </licenses>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>MAVEN LOCAL</name>
+            <url>http://192.168.50.96:8081/repository/maven-public</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>aliyun</id>
+            <name>Maven Alibaba Mirror</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <maven.plugin.version>2.7</maven.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!-- 放公共Jar的地方 -->
+    <dependencyManagement>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${maven.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${maven.plugin.version}</version>
+                <configuration>
+                    <newVersion>1.0-Beta</newVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <developers>
+        <developer>
+            <name>lh.z</name>
+            <email>***@163.com</email>
+            <url>https://my.oschina.net/zlhblogs</url>
+            <roles>
+                <role>Project Manager</role>
+                <role>Project Leader</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>阿伦</name>
+            <roles>
+                <role>Notes All Developer</role>
+            </roles>
+        </developer>
+    </developers>
+</project>
