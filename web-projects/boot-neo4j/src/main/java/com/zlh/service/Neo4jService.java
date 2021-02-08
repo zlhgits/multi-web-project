@@ -29,7 +29,7 @@ public class Neo4jService {
     private static final Logger logger=LoggerFactory.getLogger(Neo4jService.class);
 
     @Autowired
-    DbRepository dbRepository;
+    DbRepository dbMapper;
     @Autowired
     ServerRepository serverRepository;
     @Autowired
@@ -61,7 +61,7 @@ public class Neo4jService {
         List<Map<String,Object>> serviceList = svrRepository.findServiceBySysId(sysEn);
         map.put("service",serviceList);
         //db
-        List<Map<String,Object>> dbList = dbRepository.findDbBySysId(sysEn);
+        List<Map<String,Object>> dbList = dbMapper.findDbBySysId(sysEn);
         map.put("数据库",dbList);
         //服务器
         List<Map<String,Object>> serverList = serverRepository.findNodeBySysId(sysEn);
@@ -179,7 +179,7 @@ public class Neo4jService {
                 dbMap.put(id,dbDto);
             }
             //保存db
-            dbRepository.saveAll(dbMap.values());
+            dbMapper.saveAll(dbMap.values());
 
             // service
             Map<String, ServiceDto> serviceMap = new HashMap<>(16);
@@ -270,7 +270,7 @@ public class Neo4jService {
         //删除服务器
         serverRepository.delServerBySysId(sysId);
         //删除db
-        dbRepository.delDbBySysId(sysId);
+        dbMapper.delDbBySysId(sysId);
         //删除service
         svrRepository.delServiceBySysId(sysId);
         //删除web
