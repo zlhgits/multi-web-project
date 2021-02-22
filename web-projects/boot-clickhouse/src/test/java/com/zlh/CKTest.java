@@ -17,6 +17,12 @@ public class CKTest extends ClickHouseApplicationTest {
     @Test
     public void findCkData(){
         ckService.findCkTableData();
+        System.out.println("*********************");
         ckService.findCkLimitData();
+    }
+
+    @Test
+    public void findCkPageList(){
+        ckService.findCkPageList();
     }
 }

@@ -16,4 +16,9 @@ public interface CKService {
      * 查询数据
      */
     void findCkLimitData();
+
+    /**
+     * 查询分页数据
+     */
+    void findCkPageList();
 }
