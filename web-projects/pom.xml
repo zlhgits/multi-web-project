@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>boot-neo4j</module>
+        <module>boot-clickhouse</module>
     </modules>
 
 

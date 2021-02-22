@@ -1,0 +1,9 @@
+server:
+  port: 8808
+
+spring:
+  clickhouse:
+    url: jdbc:clickhouse://192.168.50.168:8123,192.168.50.168:8123/aiops
+    username:
+    password:
+    delay: 3
