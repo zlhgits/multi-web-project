@@ -1,6 +1,6 @@
 package com.zlh.service.impl;
 
-import com.zlh.entity.CKPageList;
+import com.zlh.entity.CKPageInfo;
 import com.zlh.service.CKService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -48,7 +48,7 @@ public class CKServiceImpl implements CKService {
         String sql = "select * from aiops.dc_kpi_monitor_source";
         int pageNum = 1;
         int pageSize = 5;
-        CKPageList ckPageList = this.getCKPageList(sql, pageNum, pageSize);
+        CKPageInfo ckPageList = this.getCKPageList(sql, pageNum, pageSize);
         System.out.println("ckPageList: total->"+ckPageList.getTotal()+" pages->"+ckPageList.getPages());
         List<Map<String, Object>> res = jdbcTemplate.queryForList(sql+" limit "+ckPageList.getCursor()+","+pageSize);
         // 封装到分页结果集
@@ -67,8 +67,8 @@ public class CKServiceImpl implements CKService {
      * @param pageSize
      * @return
      */
-    private CKPageList getCKPageList(String sql,int pageNum,int pageSize){
-        CKPageList ckPageList = new CKPageList();
+    private CKPageInfo getCKPageList(String sql, int pageNum, int pageSize){
+        CKPageInfo ckPageList = new CKPageInfo();
         ckPageList.setPageNum(pageNum);
         ckPageList.setPageSize(pageSize);
         // limit游标公式(pageNum-1)*pageSize

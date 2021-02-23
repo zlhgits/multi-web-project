@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 @Getter
 @Setter
-public class CKPageList {
+public class CKPageInfo {
     /**
      * 查询页码
      */
