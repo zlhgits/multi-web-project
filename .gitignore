@@ -1,5 +1,4 @@
 /.idea
-/web-projects/.idea
 /web-projects/boot-clickhouse/bootclickhouse.iml
 /web-projects/boot-clickhouse/target
 /web-projects/boot-neo4j/*.iml
